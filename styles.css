@@ -1,3 +1,7 @@
+:root {
+  --border-radius: 12px;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -35,5 +39,16 @@ h1, h2, h3, h4, h5, h6 {
 .book {
   padding: 20px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
+}
+
+button {
+  padding: 4px 12px;
+  background-color: rgba(0, 0, 0, .1);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(0,0,0, .2);
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgba(0, 0, 0, .2);
 }
