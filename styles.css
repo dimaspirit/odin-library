@@ -34,11 +34,14 @@ h1, h2, h3, h4, h5, h6 {
 .top {
   display: flex;
   gap: var(--block-gap);
+  margin: var(--block-gap);
 }
 
 .list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 50%;
   gap: var(--block-gap);
 }
 
