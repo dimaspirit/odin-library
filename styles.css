@@ -1,5 +1,6 @@
 :root {
   --border-radius: 12px;
+  --block-gap: 20px;
 }
 
 *, *::before, *::after {
@@ -30,10 +31,15 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
 }
 
+.top {
+  display: flex;
+  gap: var(--block-gap);
+}
+
 .list {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: var(--block-gap);
 }
 
 .book {
@@ -55,6 +61,29 @@ button:hover {
 
 .book-actions {
   display: flex;
-  gap: 20px;
+  gap: var(--block-gap);
   margin: 20px 0 0 0;
+}
+
+.modal-add-book {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-add fieldset {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-add label {
+  display: block;
+}
+
+input[type="text"],
+input[type="number"] {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
 }

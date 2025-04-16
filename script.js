@@ -1,7 +1,40 @@
 console.log('Hello');
 
 const listNode = document.querySelector('.list');
+
+const openModalBtnNode = document.querySelector('#open-modal');
+const modalAddBookNode = document.querySelector('.modal-add-book');
+
+const formConfirm = document.querySelector('.form-add-confirm');
+const formCancel = document.querySelector('.form-add-cancel');
+
+const formTitle = document.querySelector('#title');
+const formAuthor = document.querySelector('#author');
+const formPages = document.querySelector('#pages');
+
 let myLibrary = [];
+
+openModalBtnNode.addEventListener('click', function() {
+  modalAddBookNode.showModal();
+});
+
+formConfirm.addEventListener('click', function(event) {
+  event.preventDefault();
+  modalAddBookNode.close('submit');
+});
+
+modalAddBookNode.addEventListener('close', function() {
+  const title = formTitle.value.trim();
+  const author = formAuthor.value.trim();
+  const pages = +formPages.value;
+
+  if(modalAddBookNode.returnValue === 'submit' &&
+     title !== '' && author !== '' && !isNaN(pages)) {
+    addBookToLibrary(title, author, pages, false);
+    renderLibrary(listNode, myLibrary);
+  }
+});
+
 
 function Book(title, author, pages, read) {
   this.id = crypto.randomUUID();
